@@ -1,0 +1,34 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "test_project"
+version = "0.0.1"
+description = "A short description of the project."
+authors = [
+  { name = "cagers" },
+]
+
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    
+]
+requires-python = "~=3.13.0"
+
+
+[tool.ruff]
+select = ["E", "F", "I", "C"]
+ignore = ["E501", "C901"]
+src = ["test_project"]
+include = ["pyproject.toml", "test_project/**/*.py", "notebooks/**/*.ipynb"]
+exclude = ["build", "dist", ".venv"]
+
+[tool.ruff.lint]
+extend-select = ["ALL"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["test_project"]
+force-sort-within-sections = true
+
